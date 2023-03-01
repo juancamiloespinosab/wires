@@ -55,7 +55,7 @@ export class LandingComponent implements OnInit {
         subtitle: 'Create your first message following the first step:',
         phoneImage: {
           data: {
-            imageUrl: 'assets/mobile/Samsung Galaxy S20 5G-3.png',
+            imageUrl: 'assets/mobile/Samsung Galaxy S20 5G.png',
           },
           config: {
             width: '100%'

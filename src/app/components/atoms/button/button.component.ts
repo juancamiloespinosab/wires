@@ -13,7 +13,7 @@ export class ButtonComponent implements OnInit {
     primary: ['bg-primary', 'text-secondary', 'px-8', 'py-1' ],
     secondary: ['bg-secondary', 'text-primary', 'border', 'border-primary', 'px-8', 'py-1'],
     flat: ['bg-gray', 'text-gray-dark', 'px-8', 'py-1'],
-    blur: ['text-gray-dark', 'hover:backdrop-blur-sm', 'hover:bg-white/30', 'transition-all', 'p-10'],
+    blur: ['text-gray-dark', 'hover:backdrop-blur-sm', 'hover:bg-gray/50', 'transition-all', 'rounded-xl', 'p-10'],
   };
 
   constructor() {}
