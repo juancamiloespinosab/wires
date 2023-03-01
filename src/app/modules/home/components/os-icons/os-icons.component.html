@@ -1,0 +1,15 @@
+<section class="flex justify-center">
+  <div
+    class="grid grid-cols-3 gap-10 m-10"
+  >
+    <app-button
+      *ngFor="let imageButton of imageButtonList"
+      [config]="imageButton.button.config"
+    >
+      <app-image
+        [data]="imageButton.image.data"
+        [config]="imageButton.image.config"
+      ></app-image>
+    </app-button>
+  </div>
+</section>

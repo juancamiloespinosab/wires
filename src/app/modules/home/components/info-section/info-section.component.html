@@ -1,0 +1,29 @@
+<section
+  class="flex overflow-hidden"
+  [ngClass]="{ 'flex-row-reverse': config.reverse }"
+>
+  <!-- INFO -->
+  <div class="info-col flex flex-col w-1/2 gap-10 pt-20">
+    <h2 class="text-4xl font-bold">{{ data.title }}</h2>
+    <h3 class="text-xl">{{ data.subtitle }}</h3>
+    <div
+      *ngFor="let description of data.descriptionList"
+      class="flex gap-8"
+      [ngClass]="{ 'flex-row-reverse': config.reverse }"
+    >
+      <app-image
+        [data]="description.image.data"
+        [config]="description.image.config"
+      ></app-image>
+      <p class="text-lg">{{ description.text }}</p>
+    </div>
+    <app-login-register></app-login-register>
+  </div>
+  <!-- PHONE -->
+  <div class="flex justify-end w-1/2">
+    <app-image
+      [data]="data.phoneImage.data"
+      [config]="data.phoneImage.config"
+    ></app-image>
+  </div>
+</section>
