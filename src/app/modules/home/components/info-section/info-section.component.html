@@ -1,11 +1,11 @@
 <section
-  class="flex overflow-hidden"
+  class="flex justify-center overflow-hidden mt-10"
   [ngClass]="{ 'flex-row-reverse': config.reverse }"
 >
   <!-- INFO -->
-  <div class="info-col flex flex-col w-1/2 gap-10 pt-20">
-    <h2 class="text-4xl font-bold">{{ data.title }}</h2>
-    <h3 class="text-xl">{{ data.subtitle }}</h3>
+  <div class="flex flex-col md:w-1/2 w-full gap-10">
+    <h2 class="md:text-4xl text-2xl font-bold">{{ data.title }}</h2>
+    <h3 class="md:text-xl text-lg">{{ data.subtitle }}</h3>
     <div
       *ngFor="let description of data.descriptionList"
       class="flex gap-8"
@@ -15,12 +15,17 @@
         [data]="description.image.data"
         [config]="description.image.config"
       ></app-image>
-      <p class="text-lg">{{ description.text }}</p>
+      <p class="md:text-lg text-md">{{ description.text }}</p>
     </div>
-    <app-login-register></app-login-register>
+    <div
+      class="md:flex hidden"
+      [ngClass]="{ 'justify-end': config.reverse }"
+    >
+      <app-login-register></app-login-register>
+    </div>
   </div>
   <!-- PHONE -->
-  <div class="flex justify-end w-1/2">
+  <div class="md:flex hidden justify-end w-1/2">
     <app-image
       [data]="data.phoneImage.data"
       [config]="data.phoneImage.config"

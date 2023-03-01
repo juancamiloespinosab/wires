@@ -1,23 +1,34 @@
 .circle {
-    position: absolute;
-    border-radius: 100%;
-  }
-  
+  position: absolute;
+  border-radius: 100%;
+}
+
+.circle--rigth {
+  width: 90vh;
+  height: 90vh;
+  right: -45vh;
+}
+
+.circle--left {
+  margin-top: 90vh;
+  width: 100vh;
+  height: 100vh;
+  left: -40vh;
+}
+
+.circle--bottom {
+  margin-top: 200vh;
+  width: 100vh;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
   .circle--rigth {
-    width: 90vh;
-    height: 90vh;
-    right: -45vh;
-  }
-  
-  .circle--left {
-    margin-top: 90vh;
-    width: 100vh;
-    height: 100vh;
-    left: -40vh;
+    right: -65vh;
   }
 
-  .circle--bottom {
-    margin-top: 200vh;
-    width: 100vh;
-    height: 100vh;
+  .circle--left {
+    left: -50vh;
+    margin-top: 120vh;
   }
+}

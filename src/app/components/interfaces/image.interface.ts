@@ -4,4 +4,5 @@ export interface IImage {
 export interface IImageConfig {
     width?: string;
     maxWidth?: string;
+    minWidth?: string;
 }

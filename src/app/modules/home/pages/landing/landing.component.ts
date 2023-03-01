@@ -30,7 +30,7 @@ export class LandingComponent implements OnInit {
                 width: '400px',
               },
             },
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus, amet distinctio nobis quo consectetur, tempore impedit fugiat officiis omnis neque illo temporibus.',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus.',
           },
           {
             image: {
@@ -41,7 +41,7 @@ export class LandingComponent implements OnInit {
                 width: '400px',
               },
             },
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus, amet distinctio nobis quo consectetur, tempore impedit fugiat officiis omnis neque illo temporibus.',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus.',
           },
         ],
       },
@@ -71,7 +71,7 @@ export class LandingComponent implements OnInit {
                 width: '400px',
               },
             },
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus, amet distinctio nobis quo consectetur, tempore impedit fugiat officiis omnis neque illo temporibus.',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus.',
           },
           {
             image: {
@@ -82,7 +82,7 @@ export class LandingComponent implements OnInit {
                 width: '400px',
               },
             },
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus, amet distinctio nobis quo consectetur, tempore impedit fugiat officiis omnis neque illo temporibus.',
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, error. Provident corporis id aspernatur sit atque, accusamus.',
           },
         ],
       },

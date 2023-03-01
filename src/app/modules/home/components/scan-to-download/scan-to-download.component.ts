@@ -12,7 +12,7 @@ export class ScanToDownloadComponent implements OnInit {
       imageUrl: 'assets/icon/pngwing 1.png',
     },
     config: {
-      width: '',
+      width: '100%',
     },
   };
 

@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
       imageUrl: 'assets/img/Group 2.png',
     },
     config: {
-      width: '20',
+      maxWidth: '260px'
     },
   };
 

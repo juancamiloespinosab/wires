@@ -14,7 +14,6 @@ export class InfoSectionComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(22, this.config);
     
   }
 }
