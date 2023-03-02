@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {
   IButtonConfig,
@@ -12,6 +13,11 @@ import {
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
+  form: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', Validators.required),
+  });
+
   title: string = 'Welcome to Wires';
   signUpButton: { text: string; config: IButtonConfig; action: () => void } = {
     action: this.getNavigateFn('auth/sign-up'),
@@ -20,7 +26,8 @@ export class SignInComponent implements OnInit {
       type: 'white-transparent',
     },
   };
-  signInButton: { text: string; config: IButtonConfig } = {
+  signInButton: { text: string; config: IButtonConfig; action: () => void } = {
+    action: this.getSignInFn(),
     text: 'Sign In',
     config: {
       type: 'white',
@@ -32,6 +39,7 @@ export class SignInComponent implements OnInit {
       data: {
         label: 'Email Address',
         placeholder: 'example@mail.com',
+        formControl: this.form.controls['email'],
       },
       config: { type: 'text' },
     },
@@ -39,6 +47,7 @@ export class SignInComponent implements OnInit {
       data: {
         label: 'Password',
         placeholder: 'Password',
+        formControl: this.form.controls['password'],
       },
       config: {
         type: 'password',
@@ -51,10 +60,23 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {}
 
   getNavigateFn(target: string) {
-    const navigate = () => {
+    const navigateFn = () => {
       this.router.navigate([target]);
     };
 
-    return navigate.bind(this);
+    return navigateFn.bind(this);
+  }
+
+  getSignInFn() {
+    const signInFn = () => {
+      if (this.form.invalid) {
+        this.form.markAllAsTouched();
+        return false;
+      }
+
+      return true;
+    };
+
+    return signInFn.bind(this);
   }
 }

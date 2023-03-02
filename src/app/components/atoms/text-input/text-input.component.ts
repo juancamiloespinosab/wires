@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AbstractControl, FormControl } from '@angular/forms';
 import {
   IButtonConfig,
   IImage,
@@ -37,10 +38,13 @@ export class TextInputComponent implements OnInit {
     },
   };
 
+  formControl: AbstractControl = new FormControl({});
+
   constructor() {}
 
   ngOnInit(): void {
     this.inputType = this.config.type;
+    this.formControl = this.data.formControl;
   }
 
   getToggleShowPasswordFn() {

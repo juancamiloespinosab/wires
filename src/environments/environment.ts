@@ -3,7 +3,31 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  nestApi: {
+    baseUrl: "localhost:3000/wires",
+    paths: {
+      auth: {
+        parent: '/auth',
+        children: [
+          '/signin',
+          '/signup'
+        ]
+      },
+      messages: {
+        parent: '/messages',
+        children: [
+          '/me',
+          '/find',
+          'comment'
+        ]
+      },
+    },
+    pagination: {
+      per_page: 100,
+      page: 1
+    }
+  }
 };
 
 /*

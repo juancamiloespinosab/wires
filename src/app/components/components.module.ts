@@ -7,6 +7,7 @@ import { HeaderComponent } from './organisms/header/header.component';
 import { NavComponent } from './molecules/nav/nav.component';
 import { ImageComponent } from './atoms/image/image.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
     ImageComponent,
     MainLayoutComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   exports: [
     ButtonComponent,
     TextInputComponent,

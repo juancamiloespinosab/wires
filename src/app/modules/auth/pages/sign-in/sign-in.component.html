@@ -11,7 +11,7 @@
         >{{ signUpButton.text }}</app-button
       >
     </div>
-    <form class="md:grid md:grid-cols-2 gap-4">
+    <form class="md:grid md:grid-cols-2 gap-4" [formGroup]="form">
       <div *ngFor="let field of fields" class="mb-5">
         <app-text-input
           [data]="field.data"
@@ -20,9 +20,11 @@
       </div>
     </form>
     <div class="my-10 flex flex-col gap-4">
-      <app-button [config]="signInButton.config">{{
-        signInButton.text
-      }}</app-button>
+      <app-button
+        [config]="signInButton.config"
+        [action]="signInButton.action"
+        >{{ signInButton.text }}</app-button
+      >
     </div>
   </section>
 </app-main-layout>

@@ -1,10 +1,15 @@
 <label class="text-primary" for="input">{{ data.label }}</label>
 <div class="flex flex-col justify-center relative mt-2">
   <input
-    class="bg-secondary text-white border border-white outline-none py-2 px-4 rounded-3xl"
+    class="bg-secondary text-white border outline-none py-2 px-4 rounded-3xl"
     [type]="inputType"
     name="input"
+    [ngClass]="{
+      'border-red': data.formControl.invalid && data.formControl.touched,
+      'border-white': data.formControl.valid
+    }"
     [placeholder]="data.placeholder"
+    [formControl]="data.formControl"
   />
   <app-button
     *ngIf="config.type === 'password'"
