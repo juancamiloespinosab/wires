@@ -6,6 +6,7 @@ import {
   ITextInputConfig,
 } from 'src/app/components/interfaces';
 import { Message } from 'src/app/core/models';
+import { MessagesService } from 'src/app/core/services/http/messages.service';
 import { IMessage } from '../../interfaces';
 
 @Component({
@@ -25,7 +26,7 @@ export class CreateComponent implements OnInit {
   title: string = 'Create Message';
 
   shareButton: { text: string; config: IButtonConfig; action: () => void } = {
-    action: () => console.log(11),
+    action: this.getCreateMessageFn(),
     text: 'Share',
     config: {
       type: 'white',
@@ -54,11 +55,11 @@ export class CreateComponent implements OnInit {
   message: IMessage = {
     title: 'Title messages',
     text: 'Message',
-    date: new Date(),
+    createdAt: new Date(),
     username: 'Juan Espinosa',
   };
 
-  constructor() {}
+  constructor(private messagesService: MessagesService) {}
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe((data) => {
@@ -67,5 +68,20 @@ export class CreateComponent implements OnInit {
         ...data,
       };
     });
+  }
+
+  getCreateMessageFn() {
+    const createMessageFn = () => {
+      if (this.form.invalid) {
+        this.form.markAllAsTouched();
+        return false;
+      }
+      this.messagesService.createMessage(this.form.value).subscribe({
+        next: console.info,
+      });
+      return true;
+    };
+
+    return createMessageFn.bind(this);
   }
 }

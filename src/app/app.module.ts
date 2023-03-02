@@ -19,7 +19,9 @@ function tokenGetter() {
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,
-    JwtModule.forRoot({ config: { tokenGetter: tokenGetter } }),
+    JwtModule.forRoot({
+      config: { tokenGetter: tokenGetter, allowedDomains: ['localhost:3000'] },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
