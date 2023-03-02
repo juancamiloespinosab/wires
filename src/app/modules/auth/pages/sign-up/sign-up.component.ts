@@ -6,6 +6,7 @@ import {
   ITextInput,
   ITextInputConfig,
 } from 'src/app/components/interfaces';
+import { UserAuthService } from 'src/app/core/services/http/user-auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,10 +15,10 @@ import {
 })
 export class SignUpComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    nickName: new FormControl('', Validators.required),
-    name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    fullname: new FormControl('', Validators.required),
   });
 
   title: string = 'Welcome to Wires';
@@ -41,7 +42,7 @@ export class SignUpComponent implements OnInit {
       data: {
         label: 'Nickname',
         placeholder: 'Nickname',
-        formControl: this.form.controls['nickName'],
+        formControl: this.form.controls['username'],
       },
       config: { type: 'text' },
     },
@@ -49,7 +50,7 @@ export class SignUpComponent implements OnInit {
       data: {
         label: 'Name',
         placeholder: 'Full name',
-        formControl: this.form.controls['name'],
+        formControl: this.form.controls['fullname'],
       },
       config: { type: 'text' },
     },
@@ -73,7 +74,10 @@ export class SignUpComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private userAuthService: UserAuthService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -89,10 +93,11 @@ export class SignUpComponent implements OnInit {
     const signUpFn = () => {
       if (this.form.invalid) {
         this.form.markAllAsTouched();
-
         return false;
       }
-
+      this.userAuthService.signUp(this.form.value).subscribe({
+        next: () => this.router.navigate(['auth/sign-in']),
+      });
       return true;
     };
 

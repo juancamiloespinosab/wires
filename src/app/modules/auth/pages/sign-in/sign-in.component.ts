@@ -6,6 +6,8 @@ import {
   ITextInput,
   ITextInputConfig,
 } from 'src/app/components/interfaces';
+import { AuthService } from 'src/app/core/services/app/auth.service';
+import { UserAuthService } from 'src/app/core/services/http/user-auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +16,7 @@ import {
 })
 export class SignInComponent implements OnInit {
   form: FormGroup = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
+    username: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required),
   });
 
@@ -37,9 +39,9 @@ export class SignInComponent implements OnInit {
   fields: { data: ITextInput; config: ITextInputConfig }[] = [
     {
       data: {
-        label: 'Email Address',
-        placeholder: 'example@mail.com',
-        formControl: this.form.controls['email'],
+        label: 'Nickname',
+        placeholder: 'Nickname',
+        formControl: this.form.controls['username'],
       },
       config: { type: 'text' },
     },
@@ -55,7 +57,11 @@ export class SignInComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private userAuthService: UserAuthService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -73,7 +79,13 @@ export class SignInComponent implements OnInit {
         this.form.markAllAsTouched();
         return false;
       }
-
+      this.userAuthService.signIn(this.form.value).subscribe({
+        next: (res) => {
+          this.authService.saveAccessToken(res.access_token);
+          this.router.navigate(['messages']);
+        },
+        error: console.error,
+      });
       return true;
     };
 

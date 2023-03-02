@@ -5,29 +5,25 @@
 export const environment = {
   production: false,
   nestApi: {
-    baseUrl: "localhost:3000/wires",
+    baseUrl: 'http://localhost:3000/wires',
     paths: {
       auth: {
         parent: '/auth',
-        children: [
-          '/signin',
-          '/signup'
-        ]
+        children: {
+          signIn: '/signin',
+          signUp: '/signup',
+        },
       },
       messages: {
         parent: '/messages',
-        children: [
-          '/me',
-          '/find',
-          'comment'
-        ]
+        children: {
+          me: '/me',
+          find: '/find',
+          comment: 'comment',
+        },
       },
     },
-    pagination: {
-      per_page: 100,
-      page: 1
-    }
-  }
+  },
 };
 
 /*
