@@ -4,7 +4,7 @@ import {
   IImage,
   IImageConfig,
 } from 'src/app/components/interfaces';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { ResponsiveService } from 'src/app/core/services/app/responsive.service';
 
 @Component({
   selector: 'app-os-icons',
@@ -53,10 +53,10 @@ export class OsIconsComponent implements OnInit {
 
   isMobile: boolean = false;
 
-  constructor(public breakpointObserver: BreakpointObserver) {}
+  constructor(private responsiveService: ResponsiveService) {}
 
   ngOnInit(): void {
-    this.initBreakpointObserver();
+    this.isMobile = this.responsiveService.mobile;
 
     this.iconsUrl.forEach((iconUrl) => {
       const _iconUrl = this.isMobile ? iconUrl.mobile : iconUrl.desktop;
@@ -67,13 +67,5 @@ export class OsIconsComponent implements OnInit {
         this.imageButtonList.push(newImageButton);
       }
     });
-  }
-
-  initBreakpointObserver() {
-    this.breakpointObserver
-      .observe(['(max-width: 768px)'])
-      .subscribe((breakpointState: BreakpointState) => {
-        this.isMobile = breakpointState.matches;
-      });
   }
 }

@@ -1,10 +1,23 @@
-<app-info-section
-  *ngFor="let section of sections"
-  [data]="section.data"
-  [config]="section.config"
-></app-info-section>
-<app-scan-to-download></app-scan-to-download>
-<app-os-icons></app-os-icons>
-<div class="md:hidden flex justify-center">
-  <app-login-register ></app-login-register>
-</div>
+<app-main-layout>
+  <section header class="w-full max-w-7xl px-12">
+    <app-header></app-header>
+  </section>
+  <section content class="w-full max-w-7xl px-12">
+    <div class="z-20 relative">
+      <app-info-section
+        *ngFor="let section of sections"
+        [data]="section.data"
+        [config]="section.config"
+      ></app-info-section>
+      <app-scan-to-download></app-scan-to-download>
+      <app-os-icons></app-os-icons>
+      <div class="md:hidden flex justify-center">
+        <app-login-register></app-login-register>
+      </div>
+    </div>
+    <!-- CIRCLE BG -->
+    <div class="circle z-0 md:bg-primary bg-primary/20 circle--rigth"></div>
+    <div class="circle z-0 md:bg-primary bg-primary/20 circle--left"></div>
+    <div class="md:flex hidden circle z-0 bg-primary circle--bottom"></div>
+  </section>
+</app-main-layout>

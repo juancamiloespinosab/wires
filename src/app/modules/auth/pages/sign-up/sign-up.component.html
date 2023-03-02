@@ -1,0 +1,28 @@
+<app-main-layout>
+  <section header class="w-full flex justify-center">
+    <app-auth-header></app-auth-header>
+  </section>
+  <section content class="md:w-1/2 md:w-2/6 w-full px-8">
+    <div class="mt-6 mb-10 flex flex-col gap-4">
+      <h1 class="text-4xl font-bold text-center">{{ title }}</h1>
+      <app-button
+        [config]="signInButton.config"
+        [action]="signInButton.action"
+        >{{ signInButton.text }}</app-button
+      >
+    </div>
+    <form class="md:grid md:grid-cols-2 gap-4">
+      <div *ngFor="let field of fields" class="mb-5">
+        <app-text-input
+          [data]="field.data"
+          [config]="field.config"
+        ></app-text-input>
+      </div>
+    </form>
+    <div class="my-10 flex flex-col gap-4">
+      <app-button [config]="createButton.config">{{
+        createButton.text
+      }}</app-button>
+    </div>
+  </section>
+</app-main-layout>

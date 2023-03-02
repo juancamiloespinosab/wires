@@ -1,8 +1,11 @@
 export interface IImage {
-    imageUrl: string;
+  imageUrl: string;
 }
 export interface IImageConfig {
-    width?: string;
-    maxWidth?: string;
-    minWidth?: string;
+  width?: string;
+  maxWidth?: string;
+  minWidth?: string;
+  height?: string;
+  maxHeight?: string;
+  minHeight?: string;
 }
