@@ -16,7 +16,10 @@ import { IMessage } from '../../interfaces';
 export class CreateComponent implements OnInit {
   form: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required]),
-    text: new FormControl('', Validators.required),
+    text: new FormControl('', [
+      Validators.required,
+      Validators.pattern(/^[A-Za-z0-9\s.,]+$/),
+    ]),
   });
 
   title: string = 'Create Message';

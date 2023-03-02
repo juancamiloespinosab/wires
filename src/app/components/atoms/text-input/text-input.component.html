@@ -25,6 +25,9 @@
     >
     </textarea>
   </ng-template>
+  <span *ngIf="data.formControl.getError('pattern')" class="text-red"
+    >No puede contener caracteres especiales!</span
+  >
   <app-button
     *ngIf="config.type === 'password'"
     class="absolute right-5 flex justify-center"
