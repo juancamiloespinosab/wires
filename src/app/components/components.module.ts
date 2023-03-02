@@ -8,6 +8,7 @@ import { NavComponent } from './molecules/nav/nav.component';
 import { ImageComponent } from './atoms/image/image.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './molecules/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NavComponent,
     ImageComponent,
     MainLayoutComponent,
+    CardComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [
@@ -25,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     NavComponent,
     ImageComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
+    CardComponent
   ],
 })
 export class ComponentsModule {}

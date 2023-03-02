@@ -11,7 +11,7 @@ export class ButtonComponent implements OnInit {
   @Input() action!: () => void;
 
   buttonClassList: { [key: string]: string[] } = {
-    primary: ['bg-primary', 'text-secondary', 'px-8', 'py-1'],
+    primary: ['bg-primary', 'text-secondary', 'px-8', 'py-1', 'rounded-md'],
     secondary: [
       'bg-secondary',
       'text-primary',
@@ -19,6 +19,7 @@ export class ButtonComponent implements OnInit {
       'border-primary',
       'px-8',
       'py-1',
+      'rounded-md',
     ],
     'white-transparent': [
       'text-primary',

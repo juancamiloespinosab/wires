@@ -7,5 +7,5 @@ export interface ITextInput {
 }
 
 export interface ITextInputConfig {
-  type: 'text' | 'password';
+  type: 'text' | 'password' | 'textarea';
 }

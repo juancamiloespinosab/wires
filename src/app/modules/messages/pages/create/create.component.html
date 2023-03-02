@@ -1,1 +1,32 @@
-<p>create works!</p>
+<app-main-layout>
+  <section header class="w-full max-w-7xl px-8">
+    <app-header></app-header>
+  </section>
+  <section content class="w-full max-w-7xl px-8 mt-10">
+    <h2 class="md:text-4xl text-3xl text-primary font-bold mb-6">
+      {{ title }}
+    </h2>
+    <div class="grid md:grid-cols-2 grid-cols-1 gap-10">
+      <div>
+        <form class="grid gap-4">
+          <div *ngFor="let field of fields" class="mb-5">
+            <app-text-input
+              [data]="field.data"
+              [config]="field.config"
+            ></app-text-input>
+          </div>
+        </form>
+        <div class="md:my-10 my-4 flex flex-col gap-4 md:items-end">
+          <app-button
+            [config]="shareButton.config"
+            [action]="shareButton.action"
+            >{{ shareButton.text }}</app-button
+          >
+        </div>
+      </div>
+      <div>
+        <app-message [data]="message"></app-message>
+      </div>
+    </div>
+  </section>
+</app-main-layout>
