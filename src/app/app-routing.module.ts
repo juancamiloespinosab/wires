@@ -14,12 +14,12 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'mesagges',
+    path: 'messages',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./modules/messages/messages.module').then(
         (m) => m.MessagesModule
       ),
-    canActivate: [AuthGuard],
   },
   {
     path: '**',

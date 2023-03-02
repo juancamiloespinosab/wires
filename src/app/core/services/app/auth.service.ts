@@ -5,11 +5,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(public jwtHelperService: JwtHelperService) {}
+  constructor(private jwtHelperService: JwtHelperService) {}
 
   isAuthenticated() {
     const accessToken = this.getAccessToken();
-    return this.jwtHelperService.isTokenExpired(accessToken);
+    return !this.jwtHelperService.isTokenExpired(accessToken);
   }
 
   saveAccessToken(access_token: string) {
