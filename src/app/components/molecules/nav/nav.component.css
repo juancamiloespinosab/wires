@@ -17,5 +17,9 @@
 }
 
 .nav-container:hover ::ng-deep img {
-  filter: brightness(.15);
+  filter: brightness(1);
+  transition: filter 1s;
+}
+.nav-container:hover ::ng-deep img {
+  filter: brightness(0.15);
 }

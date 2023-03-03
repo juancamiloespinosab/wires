@@ -12,6 +12,21 @@ module.exports = {
       white: "rgb(var(--color-white))",
       black: "rgb(var(--color-black))",
     },
+    keyframes: {
+      "slide-bottom": {
+        from: {
+          transform: "translateY(-20px)",
+          opacity: "0",
+        },
+        to: {
+          transform: "translateY(0)",
+          opacity: "1",
+        },
+      },
+    },
+    animation: {
+      "slide-bottom": "slide-bottom 0.5s",
+    },
   },
   plugins: [],
 };
