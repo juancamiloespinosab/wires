@@ -1,0 +1,18 @@
+<app-nav>
+  <app-button imageButton [config]="messageImageButton.button.config">
+    <app-image
+      [data]="messageImageButton.image.data"
+      [config]="messageImageButton.image.config"
+    ></app-image>
+  </app-button>
+  <div content class="relative max-h-80 overflow-y-scroll">
+    <p class="font-bold mb-4 text-xl sticky top-0 bg-gray">{{ title }}</p>
+    <div
+      *ngFor="let recentMessage of recentMessages"
+      class="border-b border-gray-dark p-2"
+    >
+      <p class="font-semibold mb-0 text-lg">{{ recentMessage.title }}</p>
+      <p class="text-sm">{{ recentMessage.text }}</p>
+    </div>
+  </div>
+</app-nav>

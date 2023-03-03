@@ -14,7 +14,7 @@ export class MessagesService {
 
   createMessage(message: Partial<Message>) {
     const url = `${this.BASE_URL}${this.MESSAGES_API.parent}`;
-    return this.httpClient.post(url, message);
+    return this.httpClient.post<Message>(url, message);
   }
 
   getAllMessages() {

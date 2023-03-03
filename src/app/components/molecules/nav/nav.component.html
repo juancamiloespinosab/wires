@@ -1,1 +1,8 @@
-<p>nav works!</p>
+<section class="relative nav-container z-50 cursor-pointer">
+  <div class="circle rounded-full w-12 h-12 grid place-content-center">
+    <ng-content select="[imageButton]"></ng-content>
+  </div>
+  <app-card class="nav absolute p-2">
+    <ng-content select="[content]"></ng-content>
+  </app-card>
+</section>

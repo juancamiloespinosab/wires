@@ -29,4 +29,9 @@ export class AuthService {
   getUserData() {
     return JSON.parse(localStorage.getItem('user_data') ?? '');
   }
+
+  LogOut() {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('user_data');
+  }
 }

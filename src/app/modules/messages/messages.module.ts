@@ -8,6 +8,8 @@ import { CreateComponent } from './pages/create/create.component';
 import { MessageComponent } from './components/message/message.component';
 import { MeComponent } from './pages/me/me.component';
 import { AllComponent } from './pages/all/all.component';
+import { MessagesNavComponent } from './components/messages-nav/messages-nav.component';
+import { RecentMessagesComponent } from './components/recent-messages/recent-messages.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AllComponent } from './pages/all/all.component';
     CreateComponent,
     MessageComponent,
     MeComponent,
-    AllComponent
+    AllComponent,
+    MessagesNavComponent,
+    RecentMessagesComponent
   ],
   imports: [
     CommonModule,

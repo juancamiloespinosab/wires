@@ -5,9 +5,10 @@ import {
   ITextInput,
   ITextInputConfig,
 } from 'src/app/components/interfaces';
-import { Message } from 'src/app/core/models';
 import { MessagesService } from 'src/app/core/services/http/messages.service';
 import { IMessage } from '../../interfaces';
+import { RecentMessagesState } from '../../../../core/state/recent-messages.state';
+import { Message } from 'src/app/core/models';
 
 @Component({
   selector: 'app-create',
@@ -59,7 +60,10 @@ export class CreateComponent implements OnInit {
     username: 'Juan Espinosa',
   };
 
-  constructor(private messagesService: MessagesService) {}
+  constructor(
+    private messagesService: MessagesService,
+    private recentMessagesState: RecentMessagesState
+  ) {}
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe((data) => {
@@ -77,11 +81,17 @@ export class CreateComponent implements OnInit {
         return false;
       }
       this.messagesService.createMessage(this.form.value).subscribe({
-        next: console.info,
+        next: (message: Message) => this.saveRecentMessage(message),
       });
       return true;
     };
 
     return createMessageFn.bind(this);
+  }
+
+  saveRecentMessage(message: Message) {
+    if (message?.id) {
+      this.recentMessagesState.pushNewMessage(this.form.value);
+    }
   }
 }

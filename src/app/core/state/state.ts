@@ -1,7 +1,9 @@
 import { BehaviorSubject } from 'rxjs';
 
 export class State<T> {
-  private observablePrivate: BehaviorSubject<T> = new BehaviorSubject<T>(<T>{});
+  private observablePrivate: BehaviorSubject<T> = new BehaviorSubject<T>(
+    <any>[]
+  );
 
   constructor() {}
 

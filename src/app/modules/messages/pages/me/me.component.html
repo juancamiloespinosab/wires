@@ -1,6 +1,11 @@
 <app-main-layout>
   <section header class="w-full max-w-7xl px-8">
-    <app-header></app-header>
+    <app-header>
+      <section class="flex gap-4">
+        <app-recent-messages></app-recent-messages>
+        <app-messages-nav></app-messages-nav>
+      </section>
+    </app-header>
   </section>
   <section content class="w-full max-w-7xl px-8 mt-10">
     <h2 class="md:text-4xl text-3xl text-primary font-bold mb-6">
