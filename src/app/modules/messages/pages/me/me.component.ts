@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from 'src/app/core/models';
 import { AuthService } from 'src/app/core/services/app/auth.service';
 import { MessagesService } from 'src/app/core/services/http/messages.service';
+import { MessagesAdapter } from 'src/app/core/adapters/messages.adapter';
 import { IMessage } from '../../interfaces';
 
 @Component({
@@ -17,7 +18,8 @@ export class MeComponent implements OnInit {
 
   constructor(
     private messagesService: MessagesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private messagesAdapter: MessagesAdapter
   ) {}
 
   ngOnInit(): void {
@@ -31,19 +33,7 @@ export class MeComponent implements OnInit {
     });
   }
 
-  messagesAdapter(messages: Message[]): IMessage[] {
-    return messages.map((message: Message) => {
-      const { title, text, createdAt } = message;
-      return {
-        title,
-        text,
-        createdAt,
-        username: this.username,
-      };
-    });
-  }
-
   initMessages(messages: Message[]) {
-    this.messages = this.messagesAdapter(messages);
+    this.messages = this.messagesAdapter.adapter(messages);
   }
 }

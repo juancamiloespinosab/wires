@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from 'src/app/core/models';
 import { MessagesService } from 'src/app/core/services/http/messages.service';
+import { MessagesAdapter } from 'src/app/core/adapters/messages.adapter';
 import { IMessage } from '../../interfaces';
 
 @Component({
@@ -13,7 +14,10 @@ export class AllComponent implements OnInit {
 
   title: string = 'All Messages';
 
-  constructor(private messagesService: MessagesService) {}
+  constructor(
+    private messagesService: MessagesService,
+    private messagesAdapter: MessagesAdapter
+  ) {}
 
   ngOnInit(): void {
     this.getAllMessages();
@@ -25,20 +29,7 @@ export class AllComponent implements OnInit {
     });
   }
 
-  messagesAdapter(messages: Message[]): IMessage[] {
-    return messages.map((message: Message) => {
-      const { title, text, createdAt, user } = message;
-      const { username } = user;
-      return {
-        title,
-        text,
-        createdAt,
-        username,
-      };
-    });
-  }
-
   initMessages(messages: Message[]) {
-    this.messages = this.messagesAdapter(messages);
+    this.messages = this.messagesAdapter.adapter(messages);
   }
 }
