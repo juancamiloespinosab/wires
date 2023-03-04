@@ -1,0 +1,23 @@
+.button-primary {
+  @apply bg-primary text-secondary px-8 py-1 rounded-md;
+}
+
+.button-secondary {
+  @apply bg-secondary text-primary border border-primary px-8 py-1 rounded-md;
+}
+
+.button-white-transparent {
+  @apply text-primary border border-white px-8 py-1 rounded-3xl;
+}
+
+.button-white {
+  @apply bg-white text-secondary border border-white px-8 py-1 rounded-3xl;
+}
+
+.button-flat {
+  @apply text-gray-dark;
+}
+
+.button-button-blur {
+  @apply text-gray-dark hover:backdrop-blur-sm hover:bg-gray/50 transition-all rounded-xl p-10;
+}
