@@ -16,10 +16,6 @@
   background-color: rgb(var(--color-primary));
 }
 
-.nav-container ::ng-deep img {
-  transform: translateY(3px);
-}
-
 .nav-container:hover ::ng-deep img {
   filter: brightness(1);
   transition: filter 1s;

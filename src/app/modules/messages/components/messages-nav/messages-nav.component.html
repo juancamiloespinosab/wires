@@ -1,9 +1,11 @@
 <app-nav>
   <app-button imageButton [config]="navImageButton.button.config">
-    <app-image
-      [data]="navImageButton.image.data"
-      [config]="navImageButton.image.config"
-    ></app-image>
+    <div class="translate-y-[3px]">
+      <app-image
+        [data]="navImageButton.image.data"
+        [config]="navImageButton.image.config"
+      ></app-image>
+    </div>
   </app-button>
   <div content>
     <h3 class="text-xl font-semibold p-4">{{ username }}</h3>
@@ -13,7 +15,9 @@
           [data]="navImageLinkOption.link.data"
           [action]="navImageLinkOption.link.action"
         >
-          <div class="flex gap-4 p-4 hover:bg-primary transition-colors items-center">
+          <div
+            class="flex gap-4 p-4 hover:bg-primary transition-colors items-center"
+          >
             <app-image
               [data]="navImageLinkOption.image.data"
               [config]="navImageLinkOption.image.config"

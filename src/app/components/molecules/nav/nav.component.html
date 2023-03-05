@@ -1,8 +1,8 @@
 <section class="relative nav-container z-30 cursor-pointer">
-  <div class="circle rounded-full w-12 h-12 grid place-content-center bg-secondary transition-colors">
+  <div class="circle rounded-full w-12 h-12 flex justify-center items-center bg-secondary transition-colors">
     <ng-content select="[imageButton]"></ng-content>
   </div>
-  <app-card class="nav absolute animate-slide-bottom">
+  <app-card class="nav pt-4 absolute animate-slide-bottom">
     <ng-content select="[content]"></ng-content>
   </app-card>
 </section>

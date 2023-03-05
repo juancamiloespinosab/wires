@@ -1,14 +1,22 @@
-<app-nav>
+<app-nav *ngIf="(recentMessages$ | async) as recentMessages">
   <app-button imageButton [config]="messageImageButton.button.config">
-    <app-image
-      [data]="messageImageButton.image.data"
-      [config]="messageImageButton.image.config"
-    ></app-image>
+    <div class="translate-y-[3px] relative">
+      <app-image
+        [data]="messageImageButton.image.data"
+        [config]="messageImageButton.image.config"
+      ></app-image>
+      <span
+        *ngIf="recentMessages.length > 0"
+        class="absolute text-sm text-secondary left-[-10px] top-[-10px] bg-primary rounded-full w-5 h-5"
+      >
+        {{ recentMessages.length }}
+      </span>
+    </div>
   </app-button>
   <div content class="relative max-h-80 overflow-y-scroll">
     <h3 class="font-bold mb-4 text-xl sticky top-0 bg-gray p-4">{{ title }}</h3>
     <div
-      *ngFor="let recentMessage of recentMessages"
+      *ngFor="let recentMessage of recentMessages$ | async"
       class="border-b border-gray-dark p-4"
     >
       <p class="font-semibold mb-0 text-lg">{{ recentMessage.title }}</p>

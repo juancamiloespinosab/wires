@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
   IButtonConfig,
   IImage,
@@ -34,13 +35,13 @@ export class RecentMessagesComponent implements OnInit {
     },
   };
 
-  recentMessages: Partial<IMessage>[] = [];
+  recentMessages$: Observable<Partial<IMessage>[]>;
 
-  constructor(private recentMessagesState: RecentMessagesState) {}
+  constructor(private recentMessagesState: RecentMessagesState) {
+    this.recentMessages$ = this.recentMessagesState.observable;
+  }
 
   ngOnInit(): void {
-    this.recentMessagesState.observable.subscribe((data) => {
-      this.recentMessages = data;
-    });
+    
   }
 }
