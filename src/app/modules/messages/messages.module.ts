@@ -10,6 +10,7 @@ import { MeComponent } from './pages/me/me.component';
 import { AllComponent } from './pages/all/all.component';
 import { MessagesNavComponent } from './components/messages-nav/messages-nav.component';
 import { RecentMessagesComponent } from './components/recent-messages/recent-messages.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RecentMessagesComponent } from './components/recent-messages/recent-mes
     MeComponent,
     AllComponent,
     MessagesNavComponent,
-    RecentMessagesComponent
+    RecentMessagesComponent,
+    CommentComponent
   ],
   imports: [
     CommonModule,

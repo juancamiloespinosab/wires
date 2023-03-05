@@ -1,8 +1,12 @@
 <app-card class="animate-slide-bottom">
-  <h3 class="font-bold">{{ data.title }}</h3>
-  <p>{{ data.text }}</p>
-  <div class="flex justify-between mt-6">
-    <span class="text-gray-dark text-sm italic">{{ data.createdAt | date:'h:mm a d-M-yyyy' }}</span>
-    <span class="font-bold text-md text-lg">{{ data.username }}</span>
+  <div class="p-4">
+    <h3 class="font-bold">{{ data.title }}</h3>
+    <p>{{ data.text }}</p>
+    <div class="flex justify-between mt-6">
+      <span class="text-gray-dark text-sm italic">{{
+        data.createdAt | date : "h:mm a d-M-yyyy"
+      }}</span>
+      <span class="font-bold text-md text-lg">{{ data.username }}</span>
+    </div>
   </div>
 </app-card>
