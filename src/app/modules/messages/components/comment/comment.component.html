@@ -1,1 +1,13 @@
-<p>comment works!</p>
+<app-card>
+  <div class="h-4 bg-gray-dark/20"></div>
+  <div class="p-4">
+    <p class="text-sm">Coment on the publication of {{ username }}</p>
+    <div class="grid grid-cols-[70%_1fr] justify-center items-baseline gap-1">
+      <app-text-input
+        [data]="commentInput.data"
+        [config]="commentInput.config"
+      ></app-text-input>
+      <app-button [config]="sendButton.config">{{ sendButton.text }}</app-button>
+    </div>
+  </div>
+</app-card>

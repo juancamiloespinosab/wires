@@ -5,6 +5,9 @@ import { IInfoSection, IInfoSectionConfig } from '../../interfaces';
   selector: 'app-info-section',
   templateUrl: './info-section.component.html',
   styleUrls: ['./info-section.component.css'],
+  host: {
+    id: 'test'
+  }
 })
 export class InfoSectionComponent implements OnInit {
   @Input() data!: IInfoSection;

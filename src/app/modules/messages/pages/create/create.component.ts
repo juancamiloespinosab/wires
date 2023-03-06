@@ -58,6 +58,7 @@ export class CreateComponent implements OnInit {
     text: 'Message',
     createdAt: new Date(),
     username: 'Juan Espinosa',
+    comments: [],
   };
 
   constructor(

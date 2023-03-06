@@ -15,6 +15,7 @@ export class ButtonComponent implements OnInit {
     secondary: 'button-secondary',
     'white-transparent': 'button-white-transparent',
     white: 'button-white',
+    'white-small': 'button-white-small',
     flat: 'button-text-gray-dark',
     blur: 'button-button-blur',
   };

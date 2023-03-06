@@ -1,6 +1,5 @@
 import { User } from "./user.model";
 
-
 export interface Message {
   id: string;
   title: string;
@@ -8,4 +7,5 @@ export interface Message {
   createdAt: Date;
   updatedAt: Date;
   user: User;
+  comments: string[]
 }

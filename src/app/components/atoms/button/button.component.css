@@ -14,6 +14,10 @@
   @apply bg-white text-secondary border border-white px-8 py-1 rounded-3xl;
 }
 
+.button-white-small {
+  @apply text-sm bg-white text-secondary border border-white px-2 py-1 rounded-3xl;
+}
+
 .button-flat {
   @apply text-gray-dark;
 }

@@ -15,6 +15,7 @@ export class MessagesAdapter {
         title,
         text,
         createdAt,
+        comments,
         user = { username: this.authService.getUserData()?.username },
       } = message;
       const { username } = user;
@@ -23,6 +24,7 @@ export class MessagesAdapter {
         text,
         createdAt,
         username,
+        comments: comments.map((comment: string) => JSON.parse(comment)),
       };
     });
   }

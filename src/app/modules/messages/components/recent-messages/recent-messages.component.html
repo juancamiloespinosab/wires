@@ -1,4 +1,4 @@
-<app-nav *ngIf="(recentMessages$ | async) as recentMessages">
+<app-nav *ngIf="recentMessages$ | async as recentMessages">
   <app-button imageButton [config]="messageImageButton.button.config">
     <div class="translate-y-[3px] relative">
       <app-image
@@ -7,7 +7,7 @@
       ></app-image>
       <span
         *ngIf="recentMessages.length > 0"
-        class="absolute text-sm text-secondary left-[-10px] top-[-10px] bg-primary rounded-full w-5 h-5"
+        class="absolute text-sm text-secondary left-[-10px] top-[-10px] bg-primary rounded-full w-5 h-5 shadow-sm shadow-secondary"
       >
         {{ recentMessages.length }}
       </span>
